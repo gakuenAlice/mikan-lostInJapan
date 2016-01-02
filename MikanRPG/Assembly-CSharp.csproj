@@ -45,11 +45,41 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\CardController.cs" />
+     <Compile Include="Assets\Scripts\Draggable.cs" />
      <Compile Include="Assets\Scripts\IntroVidSkip.cs" />
+     <Compile Include="Assets\Scripts\JapaneseTranslator.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\CustomerController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\CustomerLifeLeftController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\GreetingButtonController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\ItemController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\QuestionTextController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\RestaurantEnums.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\RestaurantGlobals.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\RestaurantProgressController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\RestaurantTimeFrameController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\questionsAnsweredController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\ExerciseCanvasController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialCanvasController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialExerciseQuestion.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialSlidePanel.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialSliderArrows.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialStaticVariables.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\btnExerciseController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\btnTutorialController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\choiceButtonController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\nextQuestionController.cs" />
      <Compile Include="Assets\Scripts\Warp.cs" />
+     <Compile Include="Assets\Scripts\shop\ItemCardController.cs" />
+     <Compile Include="Assets\Scripts\shop\ItemSelectedController.cs" />
+     <Compile Include="Assets\Scripts\shop\ShopCustomerNumController.cs" />
+     <Compile Include="Assets\Scripts\shop\ShopLifeController.cs" />
+     <Compile Include="Assets\Scripts\shopIntro\storeSceneButtonController.cs" />
+     <Compile Include="Assets\Scripts\shopIntro\storeScenePanelController.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
@@ -58,6 +88,7 @@
      <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />
      <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
      <None Include="Assets\Tiled2Unity\Imported\Town.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\restaurant.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Materials\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Imported\SeaIntroMap.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\BeachWoods.tiled2unity.xml" />
@@ -66,17 +97,11 @@
      <None Include="Assets\Tiled2Unity\License.txt" />
      <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Meshes\_ReadMe.txt" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

@@ -59,7 +59,8 @@ public class MainMenu: MonoBehaviour {
 
 	public void StartPlay(){
 	
-		Application.LoadLevel (1);
+		Application.LoadLevel (3);
+
 	
 	}
 
