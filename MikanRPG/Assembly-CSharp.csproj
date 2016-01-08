@@ -46,9 +46,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\CardController.cs" />
      <Compile Include="Assets\Scripts\CreateFirstProfile.cs" />
+     <Compile Include="Assets\Scripts\Draggable.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
      <Compile Include="Assets\Scripts\IntroVidSkip.cs" />
+     <Compile Include="Assets\Scripts\JapaneseTranslator.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Profile.cs" />
