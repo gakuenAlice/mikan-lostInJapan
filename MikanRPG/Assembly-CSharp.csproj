@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Profile.cs" />
+     <Compile Include="Assets\Scripts\ProfileButton.cs" />
      <Compile Include="Assets\Scripts\ProfileList.cs" />
      <Compile Include="Assets\Scripts\SaveLoad.cs" />
      <Compile Include="Assets\Scripts\Warp.cs" />

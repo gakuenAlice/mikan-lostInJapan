@@ -11,7 +11,7 @@ public class CreateFirstProfile : MonoBehaviour {
 	public Text warningText;
 
 	private Game gameProfile;
-	private int profileLength = 10;
+	public static int profileLength = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -56,12 +56,12 @@ public class CreateFirstProfile : MonoBehaviour {
 	}
 
 	public void Validate(){
-		if (profileName.text.Length > profileLength) {
+		if (profileName.text.Length > CreateFirstProfile.profileLength) {
 
-			warningText.text = "Name should not be more than " + profileLength + " characters.";
+			warningText.text = "Name should not be more than " + CreateFirstProfile.profileLength + " characters.";
 		
 		}
-		if (profileName.text.Length <= profileLength){
+		if (profileName.text.Length <= CreateFirstProfile.profileLength){
 		
 			warningText.text = "";
 

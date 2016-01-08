@@ -24,12 +24,26 @@ public static class SaveLoad{
 
 	public static void Load(){
 		
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open (Application.persistentDataPath + "/" + fileName, FileMode.Open);
-			SaveLoad.list = (ProfileList)bf.Deserialize (file);
-			file.Close ();
-			Debug.Log ("Loaded");
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Open (Application.persistentDataPath + "/" + fileName, FileMode.Open);
+		SaveLoad.list = (ProfileList)bf.Deserialize (file);
+		file.Close ();
+		Debug.Log ("Loaded");
 	
 	}
+
+	public static void AddSavedGame(Game newGame){
+	
+		list.savedGames.Add (newGame);
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (Application.persistentDataPath + "/" + fileName);
+		bf.Serialize (file, SaveLoad.list);
+		file.Close ();
+		
+		Debug.Log ("save" + Application.persistentDataPath);
+	
+	}
+
+
 
 }
