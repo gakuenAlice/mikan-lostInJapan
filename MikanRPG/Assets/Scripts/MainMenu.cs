@@ -75,6 +75,7 @@ public class MainMenu: MonoBehaviour {
 		playBtn.enabled = false;
 		optionBtn.enabled = false;
 		exitBtn.enabled = false;
+		Debug.Log ("Exit pressed");
 	
 	}
 
@@ -96,25 +97,28 @@ public class MainMenu: MonoBehaviour {
 	}
 	
 	void PopulateList(){
-		
+
 		Debug.Log ("Populate");
 
 		foreach (var game in SaveLoad.list.savedGames){
-			
+
 			GameObject newButton = Instantiate(profileButton) as GameObject;
 			ProfileButton button = newButton.GetComponent<ProfileButton>();
 			button.profileName.text = game.currentProfile.profileName;
 			newButton.transform.SetParent(contentPanel);
-			
+
 		}
-		
+
 	}
-	
+
 	void DepopulateList(){
 	
 		var children = new List<GameObject>();
-		foreach (Transform child in contentPanel) children.Add(child.gameObject);
+		foreach (Transform child in contentPanel) {
+			children.Add (child.gameObject);
+		}
 		children.ForEach(child => Destroy(child));
+		Debug.Log ("Removed profile Buttons");
 	
 	}
 
@@ -170,17 +174,18 @@ public class MainMenu: MonoBehaviour {
 		
 		} else {
 		
-			DepopulateList();
 			Game newGame = new Game();
 			newGame.currentProfile.profileName = newNameInput;
 			SaveLoad.AddSavedGame(newGame);
 			Debug.Log ("Added " + newNameInput);
 			newName.text = "";
-			profileMenu.enabled = false;
+			DepopulateList();
+			PopulateList();
 
 		}
 	
 	}
+
 
 	public void SelectProfileName(){
 	
@@ -188,6 +193,7 @@ public class MainMenu: MonoBehaviour {
 		Debug.Log ("Pressed profile name");
 
 	}
+
 
 	public void OkOptions(){
 		
