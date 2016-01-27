@@ -19,8 +19,6 @@ public class MainMenu: MonoBehaviour {
 	public Button addBtn;
 	public Button deleteBtn;
 
-	public Dropdown profileList;
-
 	public InputField newName;
 	public Text calloutText;
 
@@ -43,14 +41,13 @@ public class MainMenu: MonoBehaviour {
 		addBtn = addBtn.GetComponent<Button> ();
 		deleteBtn = deleteBtn.GetComponent<Button> ();
 
-		profileList = profileList.GetComponent<Dropdown> ();
+
 
 		//List<string> name = new List<string> ();
 
 		foreach(Game game in SaveLoad.list.savedGames){
 		
-			profileList.options.Add(new Dropdown.OptionData(game.currentProfile.profileName));
-		
+
 		}
 
 		deleteBtn.onClick.AddListener(delegate{

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class EndingDialogContoller : MonoBehaviour {
@@ -8,7 +9,13 @@ public class EndingDialogContoller : MonoBehaviour {
 
 	public Text mainText;
 	public Text money;
+	public Canvas endingDialog;
 
+	void Start(){
+		endingDialog = endingDialog.GetComponent<Canvas> ();
+		endingDialog.enabled = false;
+		Debug.Log ("start");
+	}
 
 	void Awake(){
 		if (instance == null) {
@@ -17,7 +24,7 @@ public class EndingDialogContoller : MonoBehaviour {
 		} else {
 			Destroy(this);
 		}
-		
+
 	}
 
 
@@ -40,7 +47,15 @@ public class EndingDialogContoller : MonoBehaviour {
 		money.text = "" + earned;
 
 		stopGame ();
+
+		//gameObject.GetComponent<Canvas> ().enabled = true;
+		//Canvas[] children = gameObject.GetComponentsInChildren<Canvas>();
+		//foreach(Canvas child in children){
+		//	child.enabled = true;
+		//}
+
 		GetComponent<Animator> ().SetBool ("active", true);
+
 
 	}
 
