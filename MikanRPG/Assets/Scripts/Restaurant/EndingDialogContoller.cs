@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+<<<<<<< HEAD
+=======
+using System.Collections.Generic;
+>>>>>>> origin/master
 using UnityEngine.UI;
 
 public class EndingDialogContoller : MonoBehaviour {
@@ -8,7 +12,17 @@ public class EndingDialogContoller : MonoBehaviour {
 
 	public Text mainText;
 	public Text money;
+<<<<<<< HEAD
 
+=======
+	public Canvas endingDialog;
+
+	void Start(){
+		endingDialog = endingDialog.GetComponent<Canvas> ();
+		endingDialog.enabled = false;
+		Debug.Log ("start");
+	}
+>>>>>>> origin/master
 
 	void Awake(){
 		if (instance == null) {
@@ -17,9 +31,16 @@ public class EndingDialogContoller : MonoBehaviour {
 		} else {
 			Destroy(this);
 		}
+<<<<<<< HEAD
 		
 	}
 	
+=======
+
+	}
+
+
+>>>>>>> origin/master
 	public void gameOver(int score){
 		if (score <= 0) {
 			mainText.text = "Game Over. Please practice more";
@@ -39,8 +60,21 @@ public class EndingDialogContoller : MonoBehaviour {
 		money.text = "" + earned;
 
 		stopGame ();
+<<<<<<< HEAD
 		GetComponent<Animator> ().SetBool ("active", true);
 
+=======
+
+		//gameObject.GetComponent<Canvas> ().enabled = true;
+		//Canvas[] children = gameObject.GetComponentsInChildren<Canvas>();
+		//foreach(Canvas child in children){
+		//	child.enabled = true;
+		//}
+
+		GetComponent<Animator> ().SetBool ("active", true);
+
+
+>>>>>>> origin/master
 	}
 
 	private void stopGame(){

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CardController.cs" />
@@ -121,6 +122,100 @@
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\Program Files\Unity\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
+=======
+     <Compile Include="Assets\Scripts\CardController.cs" />
+     <Compile Include="Assets\Scripts\Draggable.cs" />
+     <Compile Include="Assets\Scripts\Game.cs" />
+     <Compile Include="Assets\Scripts\JapaneseTranslator.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\CheckDoubleClick.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\CreateFirstProfile.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\ProfileButton.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\ProfileList.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\Warp.cs" />
+     <Compile Include="Assets\Scripts\Profile.cs" />
+     <Compile Include="Assets\Scripts\Reference.cs" />
+     <Compile Include="Assets\Scripts\Restaurant(World2)\Food.cs" />
+     <Compile Include="Assets\Scripts\Restaurant(World2)\RandomCustomer.cs" />
+     <Compile Include="Assets\Scripts\Restaurant(World2)\RestaurantController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant(World2)\ServerTable.cs" />
+     <Compile Include="Assets\Scripts\Restaurant(World2)\Table.cs" />
+     <Compile Include="Assets\Scripts\Restaurant(World2)\Timer.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\CustomerController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\CustomerLifeLeftController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\EndingDialogContoller.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\GreetingButtonController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\GreetingSounds.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\ItemController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\QuestionTextController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\RestaurantEnums.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\RestaurantGlobals.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\RestaurantProgressController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\RestaurantTimeFrameController.cs" />
+     <Compile Include="Assets\Scripts\Restaurant\questionsAnsweredController.cs" />
+     <Compile Include="Assets\Scripts\SaveLoad.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\ExerciseCanvasController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialCanvasController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialExerciseQuestion.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialSlidePanel.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialSliderArrows.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\TutorialStaticVariables.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\btnExerciseController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\btnTutorialController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\choiceButtonController.cs" />
+     <Compile Include="Assets\Scripts\Tutorial\nextQuestionController.cs" />
+     <Compile Include="Assets\Scripts\Universal\SoundBox.cs" />
+     <Compile Include="Assets\Scripts\Universal\SoundCollection.cs" />
+     <Compile Include="Assets\Scripts\WarpToScene.cs" />
+     <Compile Include="Assets\Scripts\World3\ButtonClick.cs" />
+     <Compile Include="Assets\Scripts\shop\ItemCardController.cs" />
+     <Compile Include="Assets\Scripts\shop\ItemSelectedController.cs" />
+     <Compile Include="Assets\Scripts\shop\ShopCustomerNumController.cs" />
+     <Compile Include="Assets\Scripts\shop\ShopLifeController.cs" />
+     <Compile Include="Assets\Scripts\shop\ShopSounds1.cs" />
+     <Compile Include="Assets\Scripts\shopIntro\storeSceneButtonController.cs" />
+     <Compile Include="Assets\Scripts\shopIntro\storeScenePanelController.cs" />
+     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
+     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
+     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
+     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
+     <None Include="Assets\Tiled2Unity\Prefabs\_ReadMe.txt" />
+     <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />
+     <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\zoo map.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\Town.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\world3 map.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Materials\_ReadMe.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\gameWorld2.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\SeaIntroMap.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\BeachWoods.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Textures\_ReadMe.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\TestMap.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\License.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\mall map.tiled2unity.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
+     <None Include="Assets\Tiled2Unity\Meshes\_ReadMe.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Cecil">
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+>>>>>>> origin/master
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
