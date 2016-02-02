@@ -18,6 +18,7 @@ public class MainMenu: MonoBehaviour {
 	public Button optionBtn;
 	public Button addBtn;
 	public Button deleteBtn;
+	public Button selectBtn;
 
 	public InputField newName;
 	public Text calloutText;
@@ -40,22 +41,12 @@ public class MainMenu: MonoBehaviour {
 		optionBtn = optionBtn.GetComponent<Button> ();
 		addBtn = addBtn.GetComponent<Button> ();
 		deleteBtn = deleteBtn.GetComponent<Button> ();
-
-
-
-		//List<string> name = new List<string> ();
+		selectBtn = selectBtn.GetComponent<Button> ();
 
 		foreach(Game game in SaveLoad.list.savedGames){
 		
 
 		}
-
-		deleteBtn.onClick.AddListener(delegate{
-			
-			DeletProfile(CheckDoubleClick.profileNameClicked , deleteBtn);
-			
-		});
-
 
 		callout = callout.GetComponent<Image> ();
 
@@ -70,6 +61,8 @@ public class MainMenu: MonoBehaviour {
 		addBtn.interactable = false;
 		deleteBtn.enabled = false;
 		deleteBtn.image.enabled = false;
+		selectBtn.enabled = false;
+		selectBtn.image.enabled = false;
 
 		if (File.Exists (Application.persistentDataPath + "/" + SaveLoad.fileName)) {
 
@@ -127,9 +120,6 @@ public class MainMenu: MonoBehaviour {
 			newButton.AddComponent<CheckDoubleClick>();
 			ProfileButton button = newButton.GetComponent<ProfileButton>();
 			button.profileName.text = game.currentProfile.profileName;
-			//button.button.onClick.AddListener(delegate{
-			//	GetProfileName(button.profileName.text, button.button);
-			//});
 			newButton.transform.SetParent(contentPanel);
 
 		}
@@ -153,7 +143,7 @@ public class MainMenu: MonoBehaviour {
 		button.onClick.AddListener (delegate {
 			GetProfileName(profileName, button);
 		});
-		//button.onClick.RemoveAllListeners ();
+
 		Debug.Log(button.onClick.GetPersistentEventCount ());
 
 	}
@@ -222,15 +212,26 @@ public class MainMenu: MonoBehaviour {
 	
 	}
 
-	private void DeletProfile(string name, Button btn){
+	public void DeletProfile(){
 		
-		SaveLoad.DeleteGame (name);
+		SaveLoad.DeleteGame (CheckDoubleClick.profileNameClicked);
 		DepopulateList ();
 		PopulateList();
-		btn.onClick.RemoveAllListeners ();
 		
 	}
 
+	public void SelectProfile(){
+
+		Debug.Log (CheckDoubleClick.profileNameClicked);
+		SaveLoad.list.latestGame = CheckDoubleClick.profileNameClicked;
+		Game.current = new Game ();
+		Game.current = SaveLoad.list.savedGames.Find(x => x.currentProfile.profileName == CheckDoubleClick.profileNameClicked);
+		profileBtn.GetComponentInChildren<Text> ().text = CheckDoubleClick.profileNameClicked;
+		Debug.Log (SaveLoad.list.latestGame	);
+
+		profileMenu.enabled = false;
+
+	}
 
 	public void OkOptions(){
 		
