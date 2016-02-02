@@ -26,5 +26,8 @@ public class ShopCustomerNumController : MonoBehaviour {
 	public void reduceCustomers(){
 		customerNum--;
 		text.text = "" + customerNum;
+		if (customerNum <= 0) {
+			ShopEndController.instance.gameOver(ShopGlobals.score);
+		}
 	}
 }

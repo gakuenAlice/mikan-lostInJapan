@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class ShopLifeController : MonoBehaviour {
 
-
 	public int score;
 	private Text text; 
 
@@ -26,7 +25,12 @@ public class ShopLifeController : MonoBehaviour {
 
 	public void reduceScore(){
 		score--;
+		ShopGlobals.score = score;
 		text.text = "" + score;
+		ShopSounds1.instance.playSound("fail");
+		if (score == 0) {
+			ShopEndController.instance.gameOver(0);
+		}
 	}
 
 	public int getScore(){

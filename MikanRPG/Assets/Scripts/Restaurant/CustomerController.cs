@@ -35,8 +35,11 @@ public class CustomerController : MonoBehaviour {
 	private Sprite sprite;
 
 
+	private bool stop;
+
 	// Use this for initialization
 	void Start () {
+		stop = false;
 		anim = GetComponent<Animator> ();
 		rigidBody = GetComponent<Rigidbody2D> ();
 	
@@ -65,22 +68,36 @@ public class CustomerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (RestaurantGlobals.stop == false) {
+			if (moving == false) {
+				timeToMove -= Time.deltaTime;
 
-		if (moving == false) {
-			timeToMove -= Time.deltaTime;
+				moveSpeed = Random.Range (30, 50);
 
-			if (timeToMove < 0f) {
-				isDown = decideMovement();
-				walking = true;
-				moving = true;
-				isGreeted = false;
-				rigidBody.velocity = new Vector2(0f,direction * moveSpeed);
-				normalState();
+				int n = Random.Range (1, 7);
+
+				if (n % 5 == 0) {
+					moveSpeed = 100;
+				}
+
+
+				if (timeToMove < 0f) {
+					isDown = decideMovement ();
+					walking = true;
+					moving = true;
+					isGreeted = false;
+					rigidBody.velocity = new Vector2 (0f, direction * moveSpeed);
+					normalState ();
+				}
+			} else {
+
+				//transform.Translate (new Vector3 (0f, direction * 2 * (int)(Time.deltaTime), 0f));
+		
 			}
 		} else {
-
-			//transform.Translate (new Vector3 (0f, direction * 2 * (int)(Time.deltaTime), 0f));
-	
+			rigidBody.velocity = new Vector2 (0f, 0f);
+			transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+			Debug.Log("Stopped");
 		}
 	}
 
@@ -88,34 +105,37 @@ public class CustomerController : MonoBehaviour {
 
 		Debug.Log (gameObject.name + " is triggered");
 
-		if (other.gameObject.name == trigger1.name || other.gameObject.name == trigger2.name) {
-			moving = false;
-			transform.Translate (new Vector3 (0f, 0f, 0f));
-			rigidBody.velocity = Vector2.zero;
-			timeToMove = Random.Range (2, 5);
-			setAnimation ();
-			Debug.Log (gameObject.name + " is restarting.");
-		} else if (isGreeted == false) {
+		if (RestaurantGlobals.isDragging () == false) {
+			RestaurantGlobals.unsetGreetingButton();
+			GreetingSounds.instance.playSound(other.name);
 
-			if(other.name == lineCollider.name){
-				errorGreetingState();
-				isGreeted = true;
-			}
-			else{
-				isGreeted = true;
-				Debug.Log(correctGreeting());
-				if(other.name == correctGreeting()){
+			if (other.gameObject.name == trigger1.name || other.gameObject.name == trigger2.name) {
+				moving = false;
+				transform.Translate (new Vector3 (0f, 0f, 0f));
+				rigidBody.velocity = Vector2.zero;
+				timeToMove = Random.Range (2, 5);
+				setAnimation ();
+				Debug.Log (gameObject.name + " is restarting.");
+			} else if (isGreeted == false) {
+
+				if (other.name == lineCollider.name) {
+					errorGreetingState ();
+					isGreeted = true;
+				} else {
+					isGreeted = true;
+					Debug.Log (correctGreeting ());
+					if (other.name == correctGreeting ()) {
 					
-					correctGreetingState();
-				}
-				else{
-					errorGreetingState();
+						correctGreetingState ();
+					} else {
+						errorGreetingState ();
+					}
+
+
 				}
 
 
 			}
-
-
 		}
 	}
 
@@ -140,7 +160,6 @@ public class CustomerController : MonoBehaviour {
 		}
 
 		anim.SetBool ("isDown", retval);
-
 		return retval;
 	}
 
@@ -158,11 +177,13 @@ public class CustomerController : MonoBehaviour {
 	void correctGreetingState(){
 		stateAnim.SetBool ("isCorrect", true);
 		stateAnim.SetBool ("isGreeted", true);
+		GreetingSounds.instance.playSound ("win");
 	}
 
 	void errorGreetingState(){
 		stateAnim.SetBool ("isCorrect", false);
 		stateAnim.SetBool ("isGreeted", true);
+		GreetingSounds.instance.playSound ("fail");
 		RestaurantGlobals.reduceScore ();
 	}
 
@@ -191,6 +212,8 @@ public class CustomerController : MonoBehaviour {
 
 		return retval;
 	}
+
+
 
 
 

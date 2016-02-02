@@ -26,6 +26,7 @@ public class ItemController : MonoBehaviour{
 
 	void OnMouseDown(){
 		anim.SetBool ("click", true);
+		ShopSounds1.instance.playSound ("click");
 		ItemSelectedController.selectMe (this);
 	}
 

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.UI;
@@ -38,7 +38,7 @@ public class ItemCardController : MonoBehaviour {
 			delay -= Time.deltaTime;
 			if(delay < 0){
 				generateQuestion();
-				delay = 1;
+				delay = 2;
 				available = true;
 				anim.SetBool ("isAvailable", true);
 				anim.SetBool ("hasAnswered", false);
@@ -49,14 +49,23 @@ public class ItemCardController : MonoBehaviour {
 
 
 	public void answer(){
-		if (available == true) {
-			if (ItemSelectedController.getSelectedItem ().getText () == answerName && answerNum == int.Parse (quantity.text)) {
+		if (available == true && ShopGlobals.running) {
+			if (ItemSelectedController.getSelectedItem ().getText () == answerName ) {
+				if(ShopEndController.instance.gameHasNumbers){
+					if(answerNum == int.Parse (quantity.text)){
+						ShopSounds1.instance.playSound("win");
+					}
+					else{
+						lifeNum.reduceScore();
+					}
+				}
+				else{
+					ShopSounds1.instance.playSound("win");
+				}
 
-				Debug.Log ("She's right");
-				anim.SetBool ("isRight", true);
+
 			} else {
-				Debug.Log ("She's wrong");
-				anim.SetBool ("isRight", false);
+
 				lifeNum.reduceScore();
 			}
 
@@ -72,9 +81,11 @@ public class ItemCardController : MonoBehaviour {
 	public void generateQuestion(){
 		answerName = randomItem ();
 		answerNum = Random.Range (1, 10);
-
 		textName.text = JapaneseTranslator.translate (answerName);
-		textNum.text = "" + JapaneseTranslator.number (answerNum);
+
+		if (ShopEndController.instance.gameHasNumbers) {
+			textNum.text = "" + JapaneseTranslator.number (answerNum);
+		}
 
 	}
 

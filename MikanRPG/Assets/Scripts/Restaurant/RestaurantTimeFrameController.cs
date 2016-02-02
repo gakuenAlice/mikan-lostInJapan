@@ -12,6 +12,6 @@ public class RestaurantTimeFrameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		anim.SetInteger ("day", RestaurantGlobals.getDay());
-		//Debug.Log (RestaurantGlobals.getDay());
+
 	}
 }
