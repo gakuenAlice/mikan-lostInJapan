@@ -1,10 +1,5 @@
-<<<<<<< HEAD
+
 using UnityEngine;
-=======
-﻿using UnityEngine;
->>>>>>> origin/master
-using UnityEngine.EventSystems;
-using System.Collections;
 using UnityEngine.UI;
 
 public class ItemCardController : MonoBehaviour {
@@ -53,32 +48,13 @@ public class ItemCardController : MonoBehaviour {
 
 
 	public void answer(){
-<<<<<<< HEAD
-		if (available == true && ShopGlobals.running) {
-			if (ItemSelectedController.getSelectedItem ().getText () == answerName ) {
-				if(ShopEndController.instance.gameHasNumbers){
-					if(answerNum == int.Parse (quantity.text)){
-						ShopSounds1.instance.playSound("win");
-					}
-					else{
-						lifeNum.reduceScore();
-					}
-				}
-				else{
-					ShopSounds1.instance.playSound("win");
-				}
 
-
-			} else {
-
-=======
 		if (available == true) {
 			if (ItemSelectedController.getSelectedItem ().getText () == answerName && answerNum == int.Parse (quantity.text)) {
 				ShopSounds1.instance.playSound("win");
 
 			} else {
 				ShopSounds1.instance.playSound("fail");
->>>>>>> origin/master
 				lifeNum.reduceScore();
 			}
 
@@ -95,14 +71,8 @@ public class ItemCardController : MonoBehaviour {
 		answerName = randomItem ();
 		answerNum = Random.Range (1, 10);
 		textName.text = JapaneseTranslator.translate (answerName);
-<<<<<<< HEAD
-
-		if (ShopEndController.instance.gameHasNumbers) {
-			textNum.text = "" + JapaneseTranslator.number (answerNum);
-		}
-=======
 		textNum.text = "" + JapaneseTranslator.number (answerNum);
->>>>>>> origin/master
+
 
 	}
 

@@ -26,11 +26,10 @@ public class ShopCustomerNumController : MonoBehaviour {
 	public void reduceCustomers(){
 		customerNum--;
 		text.text = "" + customerNum;
-<<<<<<< HEAD
+
 		if (customerNum <= 0) {
 			ShopEndController.instance.gameOver(ShopGlobals.score);
 		}
-=======
->>>>>>> origin/master
+
 	}
 }
