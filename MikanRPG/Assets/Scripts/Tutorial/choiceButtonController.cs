@@ -33,6 +33,8 @@ public class choiceButtonController : MonoBehaviour, IPointerClickHandler {
 
 			TutorialStaticVariables.incrementQuestionsAnswered();
 
+
+			GameObject.Find("CorrectSoundEffect").GetComponent<AudioSource>().Play();
 			//GameObject.Find("CorrectSoundEffect").GetComponent<AudioSource>().Play();
 
 			prepareNextQuestion();

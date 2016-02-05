@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
-using System.Collections;
+
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemCardController : MonoBehaviour {
@@ -49,6 +48,7 @@ public class ItemCardController : MonoBehaviour {
 
 
 	public void answer(){
+
 		if (available == true) {
 			if (ItemSelectedController.getSelectedItem ().getText () == answerName && answerNum == int.Parse (quantity.text)) {
 				ShopSounds1.instance.playSound("win");
@@ -72,6 +72,7 @@ public class ItemCardController : MonoBehaviour {
 		answerNum = Random.Range (1, 10);
 		textName.text = JapaneseTranslator.translate (answerName);
 		textNum.text = "" + JapaneseTranslator.number (answerNum);
+
 
 	}
 

@@ -9,13 +9,13 @@ public class EndingDialogContoller : MonoBehaviour {
 
 	public Text mainText;
 	public Text money;
-	public Canvas endingDialog;
+
 
 	void Start(){
-		endingDialog = endingDialog.GetComponent<Canvas> ();
-		endingDialog.enabled = false;
+		
 		Debug.Log ("start");
 	}
+
 
 	void Awake(){
 		if (instance == null) {
@@ -26,7 +26,6 @@ public class EndingDialogContoller : MonoBehaviour {
 		}
 
 	}
-
 
 	public void gameOver(int score){
 		if (score <= 0) {
@@ -48,13 +47,8 @@ public class EndingDialogContoller : MonoBehaviour {
 
 		stopGame ();
 
-		//gameObject.GetComponent<Canvas> ().enabled = true;
-		//Canvas[] children = gameObject.GetComponentsInChildren<Canvas>();
-		//foreach(Canvas child in children){
-		//	child.enabled = true;
-		//}
-
 		GetComponent<Animator> ().SetBool ("active", true);
+
 
 
 	}

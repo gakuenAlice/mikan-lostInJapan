@@ -8,7 +8,7 @@ public class Warp : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 	
 		other.gameObject.transform.position = warpTarget.position;
-		Camera.main.transform.position = warpTarget.position;
+		Camera.main.transform.position = new Vector3 (warpTarget.position.x, warpTarget.position.y, Camera.main.transform.position.z);
 	
 	}
 }
