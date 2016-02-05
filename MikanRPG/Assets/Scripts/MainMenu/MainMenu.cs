@@ -252,7 +252,7 @@ public class MainMenu: MonoBehaviour {
 
 	public void StartPlay(){
 	
-		Application.LoadLevel (3);
+		Application.LoadLevel (1);
 
 	
 	}
