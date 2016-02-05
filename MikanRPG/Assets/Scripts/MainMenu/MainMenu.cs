@@ -8,7 +8,7 @@ using System.IO;
 public class MainMenu: MonoBehaviour {
 
 	public Canvas optionsMenu;
-	public Canvas exitMenu;
+	//public Canvas exitMenu;
 	public Canvas profileMenu;	
 	public Canvas profileNamePrompt;
 	public Image callout;
@@ -91,7 +91,7 @@ public class MainMenu: MonoBehaviour {
 
 	public void ExitPress(){
 	
-		exitMenu.enabled = true;
+		//exitMenu.enabled = true;
 		playBtn.enabled = false;
 		optionBtn.enabled = false;
 		exitBtn.enabled = false;
@@ -243,7 +243,7 @@ public class MainMenu: MonoBehaviour {
 
 	public void NoPress(){
 	
-		exitMenu.enabled = false;
+		//exitMenu.enabled = false;
 		playBtn.enabled = true;
 		optionBtn.enabled = true;
 		exitBtn.enabled = true;
