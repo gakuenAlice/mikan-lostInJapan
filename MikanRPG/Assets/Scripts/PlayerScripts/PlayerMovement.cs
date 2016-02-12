@@ -3,35 +3,41 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-	Rigidbody2D rbody;
-	Animator anim;
+    public float moveSpeed;
+
+	private Animator anim;
+    private bool playerMoving;
+    private Vector2 lastMove;
+
 
 	// Use this for initialization
 	void Start () {
-
-		rbody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-		Vector2 movement_Vector = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-		if (movement_Vector != Vector2.zero) {
-		
-			anim.SetBool ("iswalking", true);
-			anim.SetFloat("input_x", movement_Vector.x);
-			anim.SetFloat("input_y", movement_Vector.y);
+        playerMoving = false;
 
-		} else {
-		
-			anim.SetBool("iswalking", false);
-		
-		}
+		if(Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
+        {
+            transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f));
+            playerMoving = true;
+            lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
+        }
 
-		rbody.MovePosition (rbody.position + movement_Vector * Time.deltaTime);
+        if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
+        {
+            transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime, 0f));
+            playerMoving = true;
+            lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
+        }
 
-	}
+        anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
+        anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
+        anim.SetBool("PlayerMoving", playerMoving);
+        anim.SetFloat("LastMoveX", lastMove.x);
+        anim.SetFloat("LastMoveY", lastMove.y);
+    }
 }
