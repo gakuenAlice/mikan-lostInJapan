@@ -9,9 +9,7 @@ public class Game{
 	public Profile currentProfile;
 
 	public Game(){
-
 		currentProfile = new Profile();
-
 	}
 
 }

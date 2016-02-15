@@ -11,4 +11,19 @@ public class ProfileList {
 	public ProfileList(){
 	}
 
+    public Game getProfile(string s)
+    {
+        Game profile = null;
+        foreach(Game x in savedGames)
+        {
+            if (x.currentProfile.profileName.Equals(s))
+            {
+                profile = x;
+                break;
+            }
+        }
+
+        return profile;
+    }
+
 }

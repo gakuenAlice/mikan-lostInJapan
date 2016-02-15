@@ -59,8 +59,6 @@ public static class SaveLoad{
 		
 		Debug.Log ("save" + Application.persistentDataPath);
 
-
-	
 	}
 
 }

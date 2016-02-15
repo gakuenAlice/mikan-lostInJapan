@@ -47,14 +47,22 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CardController.cs" />
+     <Compile Include="Assets\Scripts\Data\PlayerData.cs" />
      <Compile Include="Assets\Scripts\Draggable.cs" />
      <Compile Include="Assets\Scripts\Game.cs" />
+     <Compile Include="Assets\Scripts\IntroTitle\IntroTitleController.cs" />
      <Compile Include="Assets\Scripts\JapaneseTranslator.cs" />
      <Compile Include="Assets\Scripts\MainMenu\CheckDoubleClick.cs" />
      <Compile Include="Assets\Scripts\MainMenu\CreateFirstProfile.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\ErrorMessageController.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\InputPlayerNameController.cs" />
      <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\PlayerNameItem.cs" />
      <Compile Include="Assets\Scripts\MainMenu\ProfileButton.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\ProfileCanvasController.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\ProfileDetailsController.cs" />
      <Compile Include="Assets\Scripts\MainMenu\ProfileList.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\ProfileListController.cs" />
      <Compile Include="Assets\Scripts\PlayGlobalVariables.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
