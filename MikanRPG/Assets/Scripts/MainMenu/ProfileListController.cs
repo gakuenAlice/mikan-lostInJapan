@@ -8,8 +8,6 @@ public class ProfileListController : MonoBehaviour {
     private int lastIndx;
     private int lastSelected = 0;
 
-    
-
     void Start ()
     {
         Game.current = null;
@@ -21,6 +19,53 @@ public class ProfileListController : MonoBehaviour {
         }
 
         loadPlayers();
+    }
+
+    public void addPlayerIntro()
+    {
+        string playerName = InputPlayerNameIntro.instance.getText();
+
+        if (string.IsNullOrEmpty(playerName))
+        {
+            ErrorMessageController.instance.setMessage("Please input a name");
+            ErrorMessageController.instance.open(true);
+        }
+        else
+        {
+            if (validateName(playerName))
+            {
+                if (lastIndx >= -1 && lastIndx < listPlayer.Length - 1 && validateName(playerName))
+                {
+                    Game newGame = new Game();
+                    Profile prof = new Profile();
+                    prof.profileName = playerName;
+                    newGame.currentProfile = prof;
+                   
+
+                    ++lastIndx;
+                    listPlayer[lastIndx].gameObject.SetActive(true);
+                    listPlayer[lastIndx].setName(playerName);
+
+                    if (lastIndx == 0)
+                    {
+                        lastSelected = 0;
+                        IntroCanvasController.instance.open(false);
+                        MainMenu.instance.setProfileName(playerName, 0);
+                        MainMenu.instance.Open(true);
+                    }
+
+                    Game.current = newGame;
+                    SaveLoad.AddSavedGame(newGame);
+
+                }
+            }
+            else
+            {
+                ErrorMessageController.instance.setMessage("Name already taken");
+                ErrorMessageController.instance.open(true);
+            }
+
+        }
     }
 
     public void addPlayer()
@@ -57,6 +102,11 @@ public class ProfileListController : MonoBehaviour {
 
 
                 }
+                else
+                {
+                    ErrorMessageController.instance.setMessage("Too many users");
+                    ErrorMessageController.instance.open(true);
+                }
             }
             else
             {
@@ -72,7 +122,7 @@ public class ProfileListController : MonoBehaviour {
     {
         if(indx <= lastIndx && indx >= 0 ) 
         {
-
+            Game.current = null;
             SaveLoad.DeleteGame(listPlayer[indx].getName());
             for (int i = indx; i < lastIndx; ++i)
             {
@@ -99,7 +149,8 @@ public class ProfileListController : MonoBehaviour {
     }
 
     public void selectPlayer(int indx)
-    {
+    { 
+
         if (indx >= 0 && indx <= lastIndx)
         {
             listPlayer[lastSelected].selected(false);
@@ -107,10 +158,23 @@ public class ProfileListController : MonoBehaviour {
             lastSelected = indx;
 
             updateSelected(listPlayer[indx].getName());
-            
+
         }
 
     }
+
+    public void updateSelectedPlayer()
+    {
+        if(lastSelected >= 0 && lastSelected <= lastIndx)
+        {
+            listPlayer[lastSelected].selected(true);
+            updateSelected(listPlayer[lastSelected].getName());
+            MainMenu.instance.setProfileName(listPlayer[lastSelected].getName(), lastSelected);
+        }
+    }
+
+    
+
 
     public void loadPlayers()
     {
@@ -123,12 +187,20 @@ public class ProfileListController : MonoBehaviour {
             Debug.Log(listPlayer[i].getName());
         }
 
-        if(list.Count > 0)
+
+        if (list.Count > 0)
         {
-            updateSelected(list[0].currentProfile.profileName);
+            lastIndx = list.Count - 1;
+            MainMenu.instance.setProfileName(listPlayer[0].getName(), 0);
+            MainMenu.instance.Open(true);
+            Game.current = SaveLoad.list.getProfile(listPlayer[0].getName());
+        }
+        else
+        {
+            IntroCanvasController.instance.open(true);
         }
 
-        lastIndx = list.Count - 1;
+        
 
     }
 
@@ -136,10 +208,12 @@ public class ProfileListController : MonoBehaviour {
     {
         bool ret = false;
 
-        foreach (PlayerNameItem item in listPlayer)
+
+        for(int i = 0; i < lastIndx; ++i)
         {
-            if (x.Equals(item.getName()))
+            if (listPlayer[i].getName().Equals(x))
             {
+                Debug.Log(listPlayer[i].getName() + "compared with " + x);
                 ret = true;
                 break;
             }
@@ -162,7 +236,7 @@ public class ProfileListController : MonoBehaviour {
 
     public void updateSelected(string s)
     {
-        if (!string.IsNullOrEmpty(s))
+        if (string.IsNullOrEmpty(s) == false)
         {
             Game.current = SaveLoad.list.getProfile(s);
             ProfileDetailsController.instance.setName(s);
@@ -172,7 +246,6 @@ public class ProfileListController : MonoBehaviour {
             Game.current = null;
             ProfileDetailsController.instance.setInvalid();
         }
-
     }
 
 

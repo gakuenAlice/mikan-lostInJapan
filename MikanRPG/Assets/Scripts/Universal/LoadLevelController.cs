@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class LoadLevelController : MonoBehaviour {
 
@@ -7,6 +8,15 @@ public class LoadLevelController : MonoBehaviour {
 
     public void loadLevel()
     {
-        Application.LoadLevel(level);
+
+        try {
+            PlayGlobalVariables.money = Game.current.currentProfile.money;
+            PlayGlobalVariables.experience = Game.current.currentProfile.exp;
+            Application.LoadLevel(level);
+        }catch(NullReferenceException ex)
+        {
+            ErrorMessageController.instance.setMessage("Error! Contact developer");
+            ErrorMessageController.instance.open(true);
+        }
     }
 }

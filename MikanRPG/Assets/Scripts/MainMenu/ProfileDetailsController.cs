@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class ProfileDetailsController : MonoBehaviour {
 
@@ -10,7 +11,8 @@ public class ProfileDetailsController : MonoBehaviour {
     private Text profileName;
     // Use this for initialization
 	void Start () {
-        profileName = GetComponent<Text>();    
+        profileName = GetComponent<Text>();
+        profileName.text = "";
 	}
 
     void Awake()
@@ -28,15 +30,18 @@ public class ProfileDetailsController : MonoBehaviour {
 
     public void setName(string s)
     {
-        profileName.text = s;
+        try {
+            profileName.text = s;
+        }
+        catch(NullReferenceException ex)
+        {
+
+        }
     }
 
     public void setInvalid()
     {
         profileName.text = "Please select a player.";
     }
-
-
-	
 	
 }

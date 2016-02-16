@@ -45,6 +45,11 @@ public class EndingDialogContoller : MonoBehaviour {
 
 		money.text = "" + earned;
 
+        if (PlayGlobalVariables.hasEnoughExperience(2500) == false)
+        {
+            PlayGlobalVariables.addMoney(earned);
+        }
+
 		stopGame ();
 
 		GetComponent<Animator> ().SetBool ("active", true);

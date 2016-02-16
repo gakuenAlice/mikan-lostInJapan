@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.Events;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+
 
 public class RestaurantController : MonoBehaviour {
 	

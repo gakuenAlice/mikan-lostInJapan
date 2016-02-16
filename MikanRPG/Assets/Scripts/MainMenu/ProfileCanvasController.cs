@@ -19,6 +19,7 @@ public class ProfileCanvasController : MonoBehaviour
             if(Game.current != null)
             {
                 anim.SetBool("open", isOpen);
+                MainMenu.instance.Open(true);
             }
             else
             {
@@ -30,7 +31,6 @@ public class ProfileCanvasController : MonoBehaviour
         {
             MainMenu.instance.Open(false);
             anim.SetBool("open", isOpen);
-            
         }
 
     }

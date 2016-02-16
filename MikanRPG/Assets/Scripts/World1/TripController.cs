@@ -14,7 +14,7 @@ public class TripController : MonoBehaviour {
     public void Open()
     {
         anim.SetBool("open", true);
-        text.text = "Pay\n¥ 15,000";
+        text.text = "Pay \n¥7,000";
     }
 
     public void Close()
@@ -26,12 +26,24 @@ public class TripController : MonoBehaviour {
 
     public void Pay()
     {
-        if(PlayGlobalVariables.firstLevelFinished == true)
-        {
-            Application.LoadLevel(6);
+        
+        if(PlayGlobalVariables.money >= 7000){
+                Application.LoadLevel(7);
         }
-        else if(PlayGlobalVariables.money >= 15000){
-            Application.LoadLevel(6);
+        else if(PlayGlobalVariables.experience >= 7000){
+                Application.LoadLevel(7);
+        }
+        else
+        {
+            text.text = "You don't have enough money ";
+        }
+    }
+
+    public void Pay2()
+    {
+        if (PlayGlobalVariables.money >= 7000)
+        {
+            Application.LoadLevel(19);
         }
         else
         {

@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.Events;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+
 
 public class MainMenu: MonoBehaviour {
 
     public static MainMenu instance;
 
+    public Text profileName;
+
+    private int profileNumber;
     private Animator anim;
 
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
+        profileNumber = 0;
 	}
 
     void Awake()
@@ -35,6 +36,22 @@ public class MainMenu: MonoBehaviour {
         anim.SetBool("open", isOpen);
     }
 
+    public void setProfileName(string profileName, int profileNum)
+    {
+        this.profileName.text = profileName;
+        this.profileNumber = profileNum;
+    }
+
+
+    public int getProfileNumber()
+    {
+        return this.profileNumber;
+    }
+
+    public void exitGame()
+    {
+        Application.Quit();
+    }
 	
 
 }

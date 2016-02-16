@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.Events;
-using System.IO;
+
 
 
 public class RandomCustomer : MonoBehaviour {

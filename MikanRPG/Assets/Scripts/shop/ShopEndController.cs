@@ -9,6 +9,7 @@ public class ShopEndController : MonoBehaviour {
 	public Text mainText;
 	public Text money;
 	public bool gameHasNumbers;
+    public int requiredExp;
 	
 	void Awake(){
 		if (instance == null) {
@@ -37,7 +38,13 @@ public class ShopEndController : MonoBehaviour {
 		int earned = score * 200;
 		
 		money.text = "" + earned;
-		ShopGlobals.running = false;
+
+        if (PlayGlobalVariables.hasEnoughExperience(requiredExp) == false)
+        {
+            PlayGlobalVariables.addMoney(earned);
+        }
+
+        ShopGlobals.running = false;
 		stopGame ();
 		GetComponent<Animator> ().SetBool ("active", true);
 		
